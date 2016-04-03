@@ -1,0 +1,21 @@
+# number of input variables, e.g., ain, bin, cin
+.i 3
+# number of output functions, e.g., sum, cout
+.o 2
+# input variable names, separated by spaces
+.ilb ain bin cin
+# output function names, separated by spaces
+.ob sum cout
+# number of non-zero truth table entries
+.p 8
+# truth table row ain=1, bin=1, cin=1: sum=1, cout=0
+111 10
+001 10
+010 10
+100 10
+111 01
+011 01
+101 01
+110 01
+# end of table
+.e
