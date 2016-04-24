@@ -69,4 +69,11 @@ f_n = (~f_bar_min).to_nnf()
 f_new = f_n.to_cnf()
 litmap, nvars, clauses = f_new.encode_cnf()
 f_nd = DimacsCNF(nvars, clauses)
-print(f_nd)
+f_min = str(f_nd)
+#print(f_min)
+
+#Generate Output file
+inputfile = sys.argv[1]
+outputfile = inputfile.split(".")[0] + "_out.cnf"
+with open(outputfile, "w" ) as file_out:
+    file_out.write(f_min)
