@@ -2,7 +2,7 @@
 from pyeda.inter import *
 import sys
 import ast
-
+sys.setrecursionlimit(25000)
 #function to split clause list
 def split_list(seq, size):
     newlist = []
@@ -10,6 +10,14 @@ def split_list(seq, size):
     for i in range(size):
         newlist.append(seq[int(round(i*splitsize)):int(round((i+1)*splitsize))])
     return newlist
+
+
+f_clause_list_str =[]
+
+#Sort the Clauses
+# for current in range(len(f_clause_list)):
+#      f_clause_list_str.append(str(f_clause_list[current]))
+# f_clause_list_str.sort()
 
 #Import CNF file and get clauses in an AST
 with open(sys.argv[1], 'r') as fin:
@@ -21,15 +29,9 @@ l=len(f)
 f_clause_list =[]
 for i in range(1, l):
     f_clause_list.append(ast2expr(f[i]))
-f_clause_list_str =[]
-
-#Sort the Clauses
-# for current in range(len(f_clause_list)):
-#      f_clause_list_str.append(str(f_clause_list[current]))
-# f_clause_list_str.sort()
 
 #Split the clauses into clusters
-num_of_clauses = int(l/50)
+num_of_clauses = int(l/30)
 f_clause_list_split = split_list(f_clause_list, (num_of_clauses + 1))
 f_split = []
 for current in range(len(f_clause_list_split)):
@@ -47,6 +49,7 @@ for current in range(len(f_split)):
     f_bar_split.append(f_bar_2[current].to_dnf())
 #print(f_bar)
 
+############################## BOTTLENECK #############################################
 #Run Espresso on split NOT(F)
 f_bar_min_split = []
 f_bar_min_split_2 = None
