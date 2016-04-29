@@ -64,7 +64,7 @@ inputCNF = sys.argv[1]
 input_CNF_dict = cnf2pla.readCNFFile(inputCNF)
 clause_list = cnf2pla.getClauses(input_CNF_dict["clauses"])
 num_inputs = cnf2pla.getNumInputs(input_CNF_dict["params"])
-cluster_size = 50
+cluster_size = 20
 clause_list_split = [clause_list[x:(x+cluster_size)] for x in range(0, len(clause_list),(cluster_size))]
 #print(clause_list_split)
 last_cluster_size = (len(clause_list))%cluster_size
