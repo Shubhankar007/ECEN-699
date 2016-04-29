@@ -73,7 +73,7 @@ def getPLAlist(clause_list, num_inputs):
 #        4. number of products in PLA
 #Output: print PLA file
 def printPLAfile(inputFile, PLA_list, num_inputs, num_prod):
-    outputfile = inputFile.split(".")[0] + "_pla.pla"
+    outputfile = inputFile.split(".")[0] + "%_pla.pla"
     with open(outputfile, "w" ) as file_out:
         file_out.write(".i ")
         file_out.write(str(num_inputs))

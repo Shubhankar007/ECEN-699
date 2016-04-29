@@ -69,7 +69,7 @@ def getNumClauses(param_list):
 #        4. number of clauses in CNF
 #Output: print CNF file
 def printCNFfile(inputFile, CNF_list, num_vars, num_clause):
-    outputfile = inputFile.split("%")[0] + "%min_cnf.cnf"
+    outputfile = inputFile.split(".")[0] + "_cnf.cnf"
     with open(outputfile, "w" ) as file_out:
         file_out.write("p cnf ")
         file_out.write(str(num_vars)+" ")
