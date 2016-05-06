@@ -2,7 +2,7 @@
 from pyeda.inter import *
 import sys
 import ast
-sys.setrecursionlimit(25000)
+sys.setrecursionlimit(100000)
 #function to split clause list
 def split_list(seq, size):
     newlist = []
@@ -31,7 +31,7 @@ for i in range(1, l):
     f_clause_list.append(ast2expr(f[i]))
 
 #Split the clauses into clusters
-num_of_clauses = int(l/30)
+num_of_clauses = int(l/20)
 f_clause_list_split = split_list(f_clause_list, (num_of_clauses + 1))
 f_split = []
 for current in range(len(f_clause_list_split)):
